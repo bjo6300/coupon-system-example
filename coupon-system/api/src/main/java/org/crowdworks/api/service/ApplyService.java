@@ -2,6 +2,7 @@ package org.crowdworks.api.service;
 
 
 import org.crowdworks.api.domain.Coupon;
+import org.crowdworks.api.producer.CouponCreateProducer;
 import org.crowdworks.api.repository.CouponCountRepository;
 import org.crowdworks.api.repository.CouponRepository;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,12 @@ public class ApplyService {
 
     private final CouponRepository couponRepository;
     private final CouponCountRepository couponCountRepository;
+    private final CouponCreateProducer couponCreateProducer;
 
-    public ApplyService(CouponRepository couponRepository, CouponCountRepository couponCountRepository) {
+    public ApplyService(CouponRepository couponRepository, CouponCountRepository couponCountRepository, CouponCreateProducer couponCreateProducer) {
         this.couponRepository = couponRepository;
         this.couponCountRepository = couponCountRepository;
+        this.couponCreateProducer = couponCreateProducer;
     }
 
     public void apply(Long userId) {
@@ -24,6 +27,6 @@ public class ApplyService {
             return;
         }
 
-        couponRepository.save(new Coupon(userId));
+        couponCreateProducer.create(userId);
     }
 }

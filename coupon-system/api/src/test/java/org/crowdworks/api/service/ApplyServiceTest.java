@@ -53,6 +53,4 @@ class ApplyServiceTest {
 
         assertThat(count).isEqualTo(100);
     }
-
-
 }
