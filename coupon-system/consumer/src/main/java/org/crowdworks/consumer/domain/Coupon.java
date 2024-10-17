@@ -1,4 +1,4 @@
-package org.crowdworks.api.domain;
+package org.crowdworks.consumer.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,8 +13,6 @@ public class Coupon {
     private Long id;
 
     private Long userId;
-
-    private String couponType;
 
     public Coupon() {
     }

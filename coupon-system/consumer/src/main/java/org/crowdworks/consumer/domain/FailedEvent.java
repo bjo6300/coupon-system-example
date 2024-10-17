@@ -1,4 +1,4 @@
-package org.crowdworks.api.domain;
+package org.crowdworks.consumer.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Coupon {
+public class FailedEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,16 +14,10 @@ public class Coupon {
 
     private Long userId;
 
-    private String couponType;
-
-    public Coupon() {
+    public FailedEvent() {
     }
 
-    public Coupon(Long userId) {
+    public FailedEvent(Long userId) {
         this.userId = userId;
-    }
-
-    public Long getId() {
-        return id;
     }
 }
